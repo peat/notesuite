@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  currency: one
+  denomination: 9.99
+  overprint_currency: one
+  overprint_denomination: 9.99
+  obverse: MyString
+  reverse: MyString
+  printer: one
+  features: one
+  material: one
+  width: 1
+  height: 1
+  printed: 2023-04-18
+
+two:
+  currency: two
+  denomination: 9.99
+  overprint_currency: two
+  overprint_denomination: 9.99
+  obverse: MyString
+  reverse: MyString
+  printer: two
+  features: two
+  material: two
+  width: 1
+  height: 1
+  printed: 2023-04-18
