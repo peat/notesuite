@@ -5,11 +5,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <ul class="container mx-auto px-5 mt-1 flex">
+          <li class="mr-2 font-light"><%= link_to "Notes", notes_path %></li>
+          <li class="mx-2 font-light"><%= link_to "Masters", masters_path %></li>
+          <li class="mx-2 font-light"><%= link_to "Currencies", currencies_path %></li>
+          <li class="mx-2 font-light"><%= link_to "Authorities", authorities_path %></li>
+          <li class="ml-2 font-light"><%= link_to "Regions", regions_path %></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container mx-auto mt-5 px-5">
+      <%= yield %>
+    </main>
   </body>
 </html>
