@@ -10,8 +10,99 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <table class="input-table">
+    <tr>
+      <th>
+        <label for="master_currency_id">Currency:</label>
+      </th>
+      <td>
+        <%= form.collection_select :currency_id, Currency.all, :id, :name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_denomination">Denomination:</label>
+      </th>
+      <td>
+        <%= form.text_field :denomination %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_overprint_currency_id">Overprint Currency:</label>
+      </th>
+      <td>
+        <%= form.collection_select :overprint_currency_id, Currency.all, :id, :name, include_blank: true %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_overprint_denomination">Overprint Denomination:</label>
+      </th>
+      <td>
+        <%= form.text_field :overprint_denomination%>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_obverse">Obverse:</label>
+      </th>
+      <td>
+        <%= form.text_field :obverse %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_reverse">Reverse:</label>
+      </th>
+      <td>
+        <%= form.text_field :reverse %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_printer_id">Printer:</label>
+      </th>
+      <td>
+        <%= form.collection_select :printer_id, Printer.all, :id, :name, include_blank: true %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_material_id">Material:</label>
+      </th>
+      <td>
+        <%= form.collection_select :material_id, Material.all, :id, :name, include_blank: true %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_width">Width:</label>
+      </th>
+      <td>
+        <%= form.text_field :width %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_height">Height:</label>
+      </th>
+      <td>
+        <%= form.text_field :height %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_printed_on">Printed:</label>
+      </th>
+      <td>
+        <%= form.date_select :printed_on, include_blank: true %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= form.submit "Submit", class: "button" %>
+      </td>
+  </table>
 <% end %>

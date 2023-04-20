@@ -5,11 +5,9 @@ one:
   grade: one
   notes: MyString
   serial: MyString
-  features: one
 
 two:
   master: two
   grade: two
   notes: MyString
   serial: MyString
-  features: two

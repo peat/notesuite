@@ -8,4 +8,10 @@ class Master < ApplicationRecord
 
   validates :currency, presence: true
   validates :denomination, presence: true
+
+  def full_name
+    region = self.currency.authority.region
+
+    "#{self.denomination} #{region.short_name} #{self.currency.name}"
+  end
 end

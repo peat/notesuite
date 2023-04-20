@@ -1,14 +1,52 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="text-2xl font-bold my-5">Masters <span class="font-normal">(<%= Master.count %>)</span></h1>
 
-<h1>Masters</h1>
-
-<div id="masters">
-  <% @masters.each do |master| %>
-    <%= render master %>
-    <p>
-      <%= link_to "Show this master", master %>
-    </p>
-  <% end %>
+<div class="my-2">
+<%= link_to 'Add Master', new_master_path, class: "button" %>
 </div>
 
-<%= link_to "New master", new_master_path %>
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>Region</th>
+      <th>Currency</th>
+      <th>Denomination</th>
+      <th>Pick</th>
+      <th>Notes</th>
+      <th>Overprint Currency</th>
+      <th>Overprint Denomination</th>
+      <th>Obverse</th>
+      <th>Reverse</th>
+      <th>Printed</th>
+      <th>Printer</th>
+      <th>Material</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th>Created</th>
+      <th>Updated</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @masters.each do |master| %>
+    <tr>
+      <td><%= link_to master.currency.authority.region.short_name, master.currency.authority.region %></td>
+      <td><%= link_to master.currency.name, master.currency %></td>
+      <td><%= master.denomination %></td>
+      <td><%= master.pick %></td>
+      <td class="system text-sm"><%= master.notes.count %></td>
+      <td><% if master.overprint_currency %><%= link_to master.overprint_currency.name, master.overprint_currency %><% end %></td>
+      <td><%= master.overprint_denomination %></td>
+      <td><%= master.obverse %></td>
+      <td><%= master.reverse %></td>
+      <td class="text-sm"><%= master.printed_on.to_date.to_formatted_s(:iso8601) %></td>
+      <td><% if master.printer %><%= master.printer.name %><% end %></td>
+      <td><% if master.material %><%= master.material.name %><% end %></td>
+      <td><%= master.width %></td>
+      <td><%= master.height %></td>
+      <td class="system text-sm"><%= master.created_at.to_date.to_formatted_s(:iso8601) %></td>
+      <td class="system text-sm"><%= master.updated_at.to_date.to_formatted_s(:iso8601) %></td>
+      <td><%= link_to "✏️", edit_master_path(master) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

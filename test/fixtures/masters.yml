@@ -2,28 +2,24 @@
 
 one:
   currency: one
-  denomination: 9.99
+  denomination: 9.5
   overprint_currency: one
-  overprint_denomination: 9.99
-  obverse: MyString
-  reverse: MyString
-  printer: one
-  features: one
+  overprint_denomination: 1.25
+  obverse: Obverse description
+  reverse: Reverse description
   material: one
-  width: 1
-  height: 1
-  printed: 2023-04-18
+  width: 100
+  height: 10
+  printed_on: 2023-04-18
 
 two:
   currency: two
-  denomination: 9.99
-  overprint_currency: two
-  overprint_denomination: 9.99
-  obverse: MyString
-  reverse: MyString
-  printer: two
-  features: two
+  denomination: 10000000000000
+  overprint_currency: 
+  overprint_denomination:
+  obverse: Obverse description
+  reverse: Reverse description
   material: two
-  width: 1
-  height: 1
-  printed: 2023-04-18
+  width: 200
+  height: 20
+  printed_on: 2023-04-18

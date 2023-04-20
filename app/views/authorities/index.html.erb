@@ -25,8 +25,8 @@
       <td><%= authority.region.short_name %></td>
       <td><%= authority.currencies.count %></td>
       <td><%= authority.masters.count %></td>
-      <td class="system text-sm"><%= authority.created_at.to_date.to_formatted_s(:long) %></td>
-      <td class="system text-sm"><%= authority.updated_at.to_date.to_formatted_s(:long) %></td>
+      <td class="system text-sm"><%= authority.created_at.to_date.to_formatted_s(:iso8601) %></td>
+      <td class="system text-sm"><%= authority.updated_at.to_date.to_formatted_s(:iso8601) %></td>
       <td><%= link_to "✏️", edit_authority_path(authority) %></td>
     </tr>
   <% end %>

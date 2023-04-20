@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_032843) do
   create_table "masters", force: :cascade do |t|
     t.integer "currency_id", null: false
     t.decimal "denomination", null: false
+    t.string "pick"
     t.integer "overprint_currency_id"
     t.decimal "overprint_denomination"
     t.string "obverse"

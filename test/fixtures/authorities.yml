@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Central Bank of Peatland
   region: one
 
 two:
-  name: MyString
+  name: The Bank of Oliviastan
   region: two

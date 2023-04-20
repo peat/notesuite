@@ -23,11 +23,11 @@
   }
 
   .index-table td, .index-table th {
-    @apply text-left px-3 py-1;
+    @apply text-left text-sm px-2 py-1;
   }
 
   .index-table td {
-    @apply border border-indigo-100;
+    @apply border border-indigo-100 whitespace-nowrap;
   }
 
   .index-table th {

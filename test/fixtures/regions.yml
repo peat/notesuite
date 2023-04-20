@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  short_name: MyString
-  iso_3166: MyString
-  official_name: MyString
-  native_name: MyString
-  wikipedia_url: MyString
+  short_name: Peatland
+  iso_3166: PLD
+  official_name: Peatland Autonomous Zone
+  native_name: Peatland Autonomous Zone
+  wikipedia_url: https://en.wikipedia.org/
 
 two:
-  short_name: MyString
-  iso_3166: MyString
-  official_name: MyString
-  native_name: MyString
-  wikipedia_url: MyString
+  short_name: Oliviastan
+  iso_3166: 
+  official_name: 
+  native_name: 
+  wikipedia_url: 

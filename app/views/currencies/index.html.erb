@@ -31,8 +31,8 @@
       <td><%= link_to currency.authority.name, currency.authority %></td>
       <td class="system"><%= currency.masters.count %></td>
       <td class="system"><%= currency.notes.count %></td>
-      <td class="system text-sm"><%= currency.created_at.to_date.to_formatted_s(:long) %></td>
-      <td class="system text-sm"><%= currency.updated_at.to_date.to_formatted_s(:long) %></td>
+      <td class="system text-sm"><%= currency.created_at.to_date.to_formatted_s(:iso8601) %></td>
+      <td class="system text-sm"><%= currency.updated_at.to_date.to_formatted_s(:iso8601) %></td>
       <td><%= link_to "✏️", edit_currency_path(currency) %></td>
     </tr>
   <% end %>

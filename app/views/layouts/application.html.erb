@@ -18,7 +18,10 @@
           <li class="mx-2 font-light"><%= link_to "Masters", masters_path %></li>
           <li class="mx-2 font-light"><%= link_to "Currencies", currencies_path %></li>
           <li class="mx-2 font-light"><%= link_to "Authorities", authorities_path %></li>
-          <li class="ml-2 font-light"><%= link_to "Regions", regions_path %></li>
+          <li class="mx-2 font-light"><%= link_to "Regions", regions_path %></li>
+          <% if Rails.env == "production" %>
+            <li class="mx-2 py-1 text-sm bold text-red-400">PRODUCTION</li>
+          <% end %>
         </ul>
       </nav>
     </header>
