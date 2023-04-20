@@ -1,6 +1,6 @@
 <%= form_with(model: currency, class: "contents") do |form| %>
   <% if currency.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    <div style="color: red">
       <h2><%= pluralize(currency.errors.count, "error") %> prohibited this currency from being saved:</h2>
 
       <ul>
@@ -11,7 +11,44 @@
     </div>
   <% end %>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-  </div>
+  <table class="input-table">
+    <tr>
+      <th>
+        <label for="currency_authority">Authority:</label>
+      </th>
+      <td>
+        <%= form.collection_select :authority_id, Authority.all, :id, :name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="currency_name">Name:</label>
+      </th>
+      <td>
+        <%= form.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="currency_iso_4217">ISO 4217:</label>
+      </th>
+      <td>
+        <%= form.text_field :iso_4217 %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="currency_symbol">Symbol:</label>
+      </th>
+      <td>
+        <%= form.text_field :symbol %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= form.submit "Submit", class: "button" %>
+      </td>
+  </table>
+
 <% end %>

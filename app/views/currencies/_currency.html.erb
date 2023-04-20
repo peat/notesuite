@@ -1,7 +1,7 @@
-<div id="<%= dom_id currency %>">
-  <% if action_name != "show" %>
-    <%= link_to "Show this currency", currency, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this currency', edit_currency_path(currency), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+<ul id="<%= dom_id currency %>">
+  <li>Name: <span class="font-bold"><%= currency.name %></span></li>
+  <li>Region: <span class="font-bold"><%= currency.authority.region.short_name %></span></li>
+  <li>Authority: <span class="font-bold"><%= currency.authority.name %></span></li>
+  <li>ISO 4217: <span class="font-bold"><%= currency.iso_4217 %></span></li>
+  <li>Symbol: <span class="font-bold"><%= currency.symbol %></span></li>
+</ul>
