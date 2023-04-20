@@ -1,3 +1,6 @@
-<div id="<%= dom_id region %>">
-  <%= region.short_name %>
-</div>
+<ul id="<%= dom_id region %>">
+  <li>Short Name: <span class="font-bold"><%= region.short_name %></span></li>
+  <li>ISO 3166: <span class="font-bold"><%= region.iso_3166 %></span></li>
+  <li>Official Name: <span class="font-bold"><%= region.official_name %></span></li>
+  <li>Native Name: <span class="font-bold"><%= region.native_name %></span></li>
+</ul>

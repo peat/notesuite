@@ -10,8 +10,27 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <table class="input-table">
+    <tr>
+      <th>
+        <label for="authority_short_name">Name:</label>
+      </th>
+      <td>
+        <%= form.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="authority_region">Region:</label>
+      </th>
+      <td>
+        <%= form.collection_select :region_id, Region.all, :id, :short_name %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= form.submit "Submit", class: "button" %>
+      </td>
+  </table>
 <% end %>

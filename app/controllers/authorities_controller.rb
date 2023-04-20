@@ -65,6 +65,6 @@ class AuthoritiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def authority_params
-      params.fetch(:authority, {})
+      params.fetch(:authority, {}).permit(:name, :region_id)
     end
 end

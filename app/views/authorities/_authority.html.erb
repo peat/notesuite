@@ -1,2 +1,6 @@
 <div id="<%= dom_id authority %>">
+  <ul>
+    <li>Name: <span class="font-bold"><%= authority.name %></span></li>
+    <li>Region: <span class="font-bold"><%= link_to authority.region.short_name, authority.region %></span></li>
+  </ul>
 </div>

@@ -11,9 +11,50 @@
     </div>
   <% end %>
 
-  Short Name: <%= form.text_field :short_name %>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <table class="input-table">
+    <tr>
+      <th>
+        <label for="region_short_name">Short Name:</label>
+      </th>
+      <td>
+        <%= form.text_field :short_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="region_iso_3166">ISO 3166:</label>
+      </th>
+      <td>
+        <%= form.text_field :iso_3166 %>
+      </td>
+    </tr><tr>
+      <th>
+        <label for="region_official_name">Official Name:</label>
+      </th>
+      <td>
+        <%= form.text_field :official_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="region_native_name">Native Name:</label>
+      </th>
+      <td>
+        <%= form.text_field :native_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="region_wikipedia_url">Wikipedia URL:</label>
+      </th>
+      <td>
+        <%= form.url_field :wikipedia_url %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= form.submit "Submit", class: "button" %>
+      </td>
+  </table>
 <% end %>
