@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
+<h1 class="text-2xl font-bold my-5">Note: <%= render "masters/name", master: @note.master %> <%= link_to "✏️" , edit_note_path(@note) %></h1>
 <%= render @note %>
 
-<div>
-  <%= link_to "Edit this note", edit_note_path(@note) %> |
-  <%= link_to "Back to notes", notes_path %>
+<h1 class="text-2xl font-bold my-5">Master</h1>
+<%= render "masters/master", master: @note.master %>
 
-  <%= button_to "Destroy this note", @note, method: :delete %>
-</div>
+<h1 class="text-2xl font-bold my-5">Currency</h1>
+<%= render "currencies/currency", currency: @note.master.currency %>
+
+<h1 class="text-2xl font-bold my-5">Authority</h1>
+<%= render "authorities/authority", authority: @note.master.currency.authority %>
+
+<h1 class="text-2xl font-bold my-5">Region</h1>
+<%= render "regions/region", region: @note.master.currency.authority.region %>

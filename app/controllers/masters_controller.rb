@@ -65,6 +65,6 @@ class MastersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def master_params
-      params.fetch(:master, {}).permit(:currency_id, :denomination, :overprint_currency_id, :overprint_denomination, :obverse, :reverse, :printer_id, :material_id, :width, :height, :printed_on, master_feature_ids: [])
+      params.fetch(:master, {}).permit(:currency_id, :denomination, :pick, :overprint_currency_id, :overprint_denomination, :obverse, :reverse, :printer_id, :material_id, :width, :height, :printed_on, master_feature_ids: [])
     end
 end

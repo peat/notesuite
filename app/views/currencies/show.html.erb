@@ -1,4 +1,4 @@
-<h1 class="text-2xl font-bold my-5">Currency: <%= @currency.authority.region.short_name %> <%= @currency.name %></h1>
+<h1 class="text-2xl font-bold my-5">Currency: <%= @currency.authority.region.short_name %> <%= @currency.name %> <%= link_to "✏️" , edit_currency_path(@currency) %></h1>
 
 <p style="color: green"><%= notice %></p>
 

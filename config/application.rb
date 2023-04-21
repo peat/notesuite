@@ -12,6 +12,7 @@ module Notesuite
     config.load_defaults 7.0
 
     config.hosts << "gezora.local"
+    config.hosts << "192.168.1.100"
 
     # Configuration for the application, engines, and railties goes here.
     #

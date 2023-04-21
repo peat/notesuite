@@ -17,7 +17,7 @@
         <label for="note_master_id">Master:</label>
       </th>
       <td>
-        <%= form.collection_select :master_id, Master.all, :id, :full_name %>
+        <%= form.collection_select :master_id, Master.all, :id, lambda { |m| render("masters/name", master: m) } %>
       </td>
     </tr>
     <tr>

@@ -1,5 +1,5 @@
-<h1 class="text-2xl font-bold my-5">Master: <%= @master.full_name %></h1>
-
 <p style="color: green"><%= notice %></p>
+
+<h1 class="text-2xl font-bold my-5">Master: <%= render "masters/name", master: @master %><%= link_to "✏️" , edit_master_path(@master) %></h1>
 
 <%= render @master %>

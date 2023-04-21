@@ -17,7 +17,7 @@
         <label for="currency_authority">Authority:</label>
       </th>
       <td>
-        <%= form.collection_select :authority_id, Authority.all, :id, :name %>
+        <%= form.collection_select :authority_id, Authority.all, :id, :long_name %>
       </td>
     </tr>
     <tr>

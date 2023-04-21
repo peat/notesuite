@@ -7,6 +7,7 @@
 <table class="index-table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Region</th>
       <th>Currency</th>
       <th>Denomination</th>
@@ -29,16 +30,17 @@
   <tbody>
   <% @masters.each do |master| %>
     <tr>
+      <td><%= link_to master.id, master %></td>
       <td><%= link_to master.currency.authority.region.short_name, master.currency.authority.region %></td>
       <td><%= link_to master.currency.name, master.currency %></td>
-      <td><%= master.denomination %></td>
+      <td><%= number_to_human master.denomination, delimiter: ","  %></td>
       <td><%= master.pick %></td>
       <td class="system text-sm"><%= master.notes.count %></td>
       <td><% if master.overprint_currency %><%= link_to master.overprint_currency.name, master.overprint_currency %><% end %></td>
       <td><%= master.overprint_denomination %></td>
       <td><%= master.obverse %></td>
       <td><%= master.reverse %></td>
-      <td class="text-sm"><%= master.printed_on.to_date.to_formatted_s(:iso8601) %></td>
+      <td class="text-sm"><% if master.printed_on %><%= master.printed_on.to_date.to_formatted_s(:iso8601) %><% end %></td>
       <td><% if master.printer %><%= master.printer.name %><% end %></td>
       <td><% if master.material %><%= master.material.name %><% end %></td>
       <td><%= master.width %></td>

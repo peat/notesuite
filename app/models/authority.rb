@@ -5,4 +5,8 @@ class Authority < ApplicationRecord
 
   validates :name, presence: true
   validates :region, presence: true
+
+  def long_name
+    "#{self.region.short_name} - #{self.name}"
+  end
 end

@@ -1,2 +1,6 @@
-<div id="<%= dom_id note %>">
-</div>
+<ul id="<%= dom_id note %>">
+  <li>Grade: <span class="font-bold"><%= note.grade.name %></span></li>
+  <li>Serial: <span class="font-bold"><%= note.serial %></span></li>
+  <li>Notes: <span class="font-bold"><%= note.notes %></span></li>
+  <li>Features: <span class="font-bold"><%= note.note_features.map { |f| f.name }.join(", ") %></span></li>
+</ul>
