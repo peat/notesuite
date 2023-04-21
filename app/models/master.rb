@@ -12,6 +12,6 @@ class Master < ApplicationRecord
   def full_name
     region = self.currency.authority.region
 
-    "#{self.denomination} #{region.short_name} #{self.currency.name}"
+    "#{self.denomination} #{region.short_name} #{self.currency.name.pluralize}"
   end
 end

@@ -11,7 +11,56 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <table class="input-table">
+    <tr>
+      <th>
+        <label for="note_master_id">Master:</label>
+      </th>
+      <td>
+        <%= form.collection_select :master_id, Master.all, :id, :full_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="note_grade_id">Grade:</label>
+      </th>
+      <td>
+        <%= form.collection_select :grade_id, Grade.all, :id, :name, include_blank: true %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="note_notes">Notes:</label>
+      </th>
+      <td>
+        <%= form.text_field :notes %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="note_serial">Serial:</label>
+      </th>
+      <td>
+        <%= form.text_field :serial %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="note_note_feature_ids">Features:</label>
+      </th>
+      <td>
+        <%= form.collection_check_boxes(:note_feature_ids, NoteFeature.all, :id, :name) do |b|  %>
+          <%= b.label(class: "block") do %> 
+            <%= b.object.name %>
+            <%= b.check_box %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= form.submit "Submit", class: "button" %>
+      </td>
+  </table>
 <% end %>

@@ -1,2 +1,12 @@
-<div id="<%= dom_id master %>">
-</div>
+<ul id="<%= dom_id master %>">
+  <li>Full Name: <span class="font-bold"><%= master.full_name %></span></li>
+  <li>Pick: <span class="font-bold"><%= master.pick %></span></li>
+  <li>Overprint: <% if master.overprint_currency %><span class="font-bold"><%= master.overprint_denomination %> <%= master.overprint_currency.name.pluralize %><% end %></li>
+  <li>Obverse: <span class="font-bold"><%= master.obverse %></span></li>
+  <li>Reverse: <span class="font-bold"><%= master.reverse %></span></li>
+  <li>Width: <span class="font-bold"><%= master.width %></span></li>
+  <li>Height: <span class="font-bold"><%= master.height %></span></li>
+  <li>Printed: <span class="font-bold"><%= master.printed_on.to_date.to_formatted_s(:iso8601) %></span></li>
+  <li>Printer: <span class="font-bold"><% if master.printer %><%= master.printer.name %><% end %></span></li>
+  <li>Material: <span class="font-bold"><% if master.material %><%= master.material.name %><% end %></span></li>
+</ul>

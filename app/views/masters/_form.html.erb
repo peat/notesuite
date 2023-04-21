@@ -61,6 +61,27 @@
     </tr>
     <tr>
       <th>
+        <label for="master_master_feature_ids">Features:</label>
+      </th>
+      <td>
+        <%= form.collection_check_boxes(:master_feature_ids, MasterFeature.all, :id, :name) do |b|  %>
+          <%= b.label(class: "block") do %> 
+            <%= b.object.name %>
+            <%= b.check_box %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="master_printed_on">Printed:</label>
+      </th>
+      <td>
+        <%= form.date_select :printed_on, include_blank: true %>
+      </td>
+    </tr>
+    <tr>
+      <th>
         <label for="master_printer_id">Printer:</label>
       </th>
       <td>
@@ -89,14 +110,6 @@
       </th>
       <td>
         <%= form.text_field :height %>
-      </td>
-    </tr>
-    <tr>
-      <th>
-        <label for="master_printed_on">Printed:</label>
-      </th>
-      <td>
-        <%= form.date_select :printed_on, include_blank: true %>
       </td>
     </tr>
     <tr>

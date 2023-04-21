@@ -10,40 +10,28 @@
       <th>Region</th>
       <th>Currency</th>
       <th>Denomination</th>
+      <th>Pick</th>
+      <th>Serial</th>
+      <th>Grade</th>
       <th>Notes</th>
-      <th>Overprint Currency</th>
-      <th>Overprint Denomination</th>
-      <th>Obverse</th>
-      <th>Reverse</th>
-      <th>Printed</th>
-      <th>Printer</th>
-      <th>Material</th>
-      <th>Width</th>
-      <th>Height</th>
       <th>Created</th>
       <th>Updated</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-  <% @masters.each do |master| %>
+  <% @notes.each do |note| %>
     <tr>
-      <td><%= link_to master.currency.authority.region.short_name, master.currency.authority.region %></td>
-      <td><%= link_to master.currency.name, master.currency %></td>
-      <td><%= master.denomination %></td>
-      <td class="system text-sm"><%= master.notes.count %></td>
-      <td><% if master.overprint_currency %><%= link_to master.overprint_currency.name, master.overprint_currency %><% end %></td>
-      <td><%= master.overprint_denomination %></td>
-      <td><%= master.obverse %></td>
-      <td><%= master.reverse %></td>
-      <td class="text-sm"><%= master.printed_on.to_date.to_formatted_s(:iso8601) %></td>
-      <td><% if master.printer %><%= master.printer.name %><% end %></td>
-      <td><% if master.material %><%= master.material.name %><% end %></td>
-      <td><%= master.width %></td>
-      <td><%= master.height %></td>
-      <td class="system text-sm"><%= master.created_at.to_date.to_formatted_s(:iso8601) %></td>
-      <td class="system text-sm"><%= master.updated_at.to_date.to_formatted_s(:iso8601) %></td>
-      <td><%= link_to "✏️", edit_master_path(master) %></td>
+      <td><%= link_to note.master.currency.authority.region.short_name, note.master.currency.authority.region %></td>
+      <td><%= link_to note.master.currency.name, note.master.currency %></td>
+      <td><%= note.master.denomination %></td>
+      <td><%= note.master.pick %></td>
+      <td><%= note.serial %></td>
+      <td><% if note.grade %><%= note.grade.name %><% end %></td>
+      <td><%= note.notes %></td>
+      <td class="system text-sm"><%= note.created_at.to_date.to_formatted_s(:iso8601) %></td>
+      <td class="system text-sm"><%= note.updated_at.to_date.to_formatted_s(:iso8601) %></td>
+      <td><%= link_to "✏️", edit_note_path(note) %></td>
     </tr>
   <% end %>
   </tbody>
