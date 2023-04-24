@@ -3,6 +3,8 @@ class Authority < ApplicationRecord
   has_many :currencies
   has_many :masters, through: :currencies
 
+  default_scope { order(name: :asc) }
+
   validates :name, presence: true
   validates :region, presence: true
 
