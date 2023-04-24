@@ -65,6 +65,6 @@ class CurrenciesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def currency_params
-      params.fetch(:currency, {}).permit(:authority_id, :name, :iso_4217, :symbol)
+      params.fetch(:currency, {}).permit(:authority_id, :name, :iso_4217, :symbol, :issued_on, :withdrawn_on, :lapsed_on)
     end
 end

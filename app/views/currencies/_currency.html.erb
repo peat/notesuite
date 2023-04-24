@@ -4,4 +4,7 @@
   <li>Authority: <span class="font-bold"><%= currency.authority.name %></span></li>
   <li>ISO 4217: <span class="font-bold"><%= currency.iso_4217 %></span></li>
   <li>Symbol: <span class="font-bold"><%= currency.symbol %></span></li>
+  <li>Issued: <span class="font-bold"><% if currency.issued_on %><%= currency.issued_on.to_date.to_formatted_s(:iso8601) %><% end %></span></li>
+  <li>Withdrawn: <span class="font-bold"><% if currency.withdrawn_on %><%= currency.withdrawn_on.to_date.to_formatted_s(:iso8601) %><% end %></span></li>
+  <li>Lapsed: <span class="font-bold"><% if currency.lapsed_on %><%= currency.lapsed_on.to_date.to_formatted_s(:iso8601) %><% end %></span></li>
 </ul>

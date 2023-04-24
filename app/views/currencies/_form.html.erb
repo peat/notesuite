@@ -45,6 +45,30 @@
       </td>
     </tr>
     <tr>
+      <th>
+        <label for="currency_issued_on">Issued:</label>
+      </th>
+      <td>
+        <%= form.text_field :issued_on, placeholder: "YYYY-MM-DD" %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="currency_withdrawn_on">Withdrawn:</label>
+      </th>
+      <td>
+        <%= form.text_field :withdrawn_on, placeholder: "YYYY-MM-DD" %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="currency_lapsed_on">Lapsed:</label>
+      </th>
+      <td>
+        <%= form.text_field :lapsed_on, placeholder: "YYYY-MM-DD" %>
+      </td>
+    </tr>
+    <tr>
       <th></th>
       <td>
         <%= form.submit "Submit", class: "button" %>

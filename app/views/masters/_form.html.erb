@@ -16,7 +16,7 @@
         <label for="master_currency_id">Currency:</label>
       </th>
       <td>
-        <%= form.collection_select :currency_id, Currency.all, :id, :name %>
+        <%= form.collection_select :currency_id, Currency.all, :id, lambda { |c| render("currencies/name", currency: c) } %>
       </td>
     </tr>
     <tr>

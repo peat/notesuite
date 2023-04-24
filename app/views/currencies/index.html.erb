@@ -14,6 +14,9 @@
       <th>ISO 4217</th>
       <th>Symbol</th>
       <th>Authority</th>
+      <th>Issued</th>
+      <th>Withdrawn</th>
+      <th>Lapsed</th>
       <th>Masters</th>
       <th>Notes</th>
       <th>Created</th>
@@ -29,6 +32,9 @@
       <td><%= currency.iso_4217 %></td>
       <td><%= currency.symbol %></td>
       <td><%= link_to currency.authority.name, currency.authority %></td>
+      <td class="text-sm"><% if currency.issued_on %><%= currency.issued_on.to_date.to_formatted_s(:iso8601) %><% end %></td>
+      <td class="text-sm"><% if currency.withdrawn_on %><%= currency.withdrawn_on.to_date.to_formatted_s(:iso8601) %><% end %></td>
+      <td class="text-sm"><% if currency.lapsed_on %><%= currency.lapsed_on.to_date.to_formatted_s(:iso8601) %><% end %></td>
       <td class="system"><%= currency.masters.count %></td>
       <td class="system"><%= currency.notes.count %></td>
       <td class="system text-sm"><%= currency.created_at.to_date.to_formatted_s(:iso8601) %></td>
