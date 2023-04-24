@@ -22,6 +22,7 @@
       <th>Material</th>
       <th>Width</th>
       <th>Height</th>
+      <th>Oversized</th>
       <th>Created</th>
       <th>Updated</th>
       <th></th>
@@ -45,6 +46,7 @@
       <td><% if master.material %><%= master.material.name %><% end %></td>
       <td><%= master.width %></td>
       <td><%= master.height %></td>
+      <td><%= master.oversized %></td>
       <td class="system text-sm"><%= master.created_at.to_date.to_formatted_s(:iso8601) %></td>
       <td class="system text-sm"><%= master.updated_at.to_date.to_formatted_s(:iso8601) %></td>
       <td><%= link_to "✏️", edit_master_path(master) %></td>

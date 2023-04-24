@@ -11,6 +11,7 @@ module Notesuite
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.hosts << "localhost"
     config.hosts << "gezora.local"
     config.hosts << "192.168.1.100"
 

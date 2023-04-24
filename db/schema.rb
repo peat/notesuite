@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_19_032843) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_24_003901) do
   create_table "authorities", force: :cascade do |t|
     t.string "name", null: false
     t.integer "region_id", null: false
@@ -66,8 +66,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_032843) do
     t.date "printed_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "oversized"
+    t.index "\"features_id\"", name: "index_masters_on_features_id"
     t.index ["currency_id"], name: "index_masters_on_currency_id"
-    t.index ["features_id"], name: "index_masters_on_features_id"
     t.index ["material_id"], name: "index_masters_on_material_id"
     t.index ["overprint_currency_id"], name: "index_masters_on_overprint_currency_id"
     t.index ["printer_id"], name: "index_masters_on_printer_id"
@@ -97,7 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_032843) do
     t.string "serial"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["features_id"], name: "index_notes_on_features_id"
+    t.index "\"features_id\"", name: "index_notes_on_features_id"
     t.index ["grade_id"], name: "index_notes_on_grade_id"
     t.index ["master_id"], name: "index_notes_on_master_id"
   end
@@ -120,16 +121,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_032843) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "master_features_masters", "masters"
-  add_foreign_key "master_features_masters", "master_features"
-  add_foreign_key "note_features_notes", "notes"
-  add_foreign_key "note_features_notes", "note_features"
   add_foreign_key "authorities", "regions"
   add_foreign_key "currencies", "authorities"
+  add_foreign_key "master_features_masters", "master_features"
+  add_foreign_key "master_features_masters", "masters"
   add_foreign_key "masters", "currencies"
+  add_foreign_key "masters", "currencies", column: "overprint_currency_id"
   add_foreign_key "masters", "materials"
-  add_foreign_key "masters", "currencies", column: :overprint_currency_id
   add_foreign_key "masters", "printers"
+  add_foreign_key "note_features_notes", "note_features"
+  add_foreign_key "note_features_notes", "notes"
   add_foreign_key "notes", "grades"
   add_foreign_key "notes", "masters"
   add_foreign_key "printers", "regions"
