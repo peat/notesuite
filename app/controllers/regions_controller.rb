@@ -25,6 +25,7 @@ class RegionsController < ApplicationController
 
     respond_to do |format|
       if @region.save
+        session[:last_region_id] = @region.id
         format.html { redirect_to region_url(@region), notice: "Region was successfully created." }
         format.json { render :show, status: :created, location: @region }
       else
@@ -38,6 +39,7 @@ class RegionsController < ApplicationController
   def update
     respond_to do |format|
       if @region.update(region_params)
+        session[:last_region_id] = @region.id
         format.html { redirect_to region_url(@region), notice: "Region was successfully updated." }
         format.json { render :show, status: :ok, location: @region }
       else

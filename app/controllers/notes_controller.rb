@@ -13,6 +13,7 @@ class NotesController < ApplicationController
   # GET /notes/new
   def new
     @note = Note.new
+    @note.master_id = session[:last_master_id]
   end
 
   # GET /notes/1/edit

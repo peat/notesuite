@@ -13,6 +13,7 @@ class CurrenciesController < ApplicationController
   # GET /currencies/new
   def new
     @currency = Currency.new
+    @currency.authority_id = session[:last_authority_id]
   end
 
   # GET /currencies/1/edit
@@ -25,6 +26,7 @@ class CurrenciesController < ApplicationController
 
     respond_to do |format|
       if @currency.save
+        session[:last_currency_id] = @currency.id
         format.html { redirect_to currency_url(@currency), notice: "Currency was successfully created." }
         format.json { render :show, status: :created, location: @currency }
       else
@@ -38,6 +40,7 @@ class CurrenciesController < ApplicationController
   def update
     respond_to do |format|
       if @currency.update(currency_params)
+        session[:last_currency_id] = @currency.id
         format.html { redirect_to currency_url(@currency), notice: "Currency was successfully updated." }
         format.json { render :show, status: :ok, location: @currency }
       else

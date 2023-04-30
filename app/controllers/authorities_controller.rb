@@ -13,6 +13,7 @@ class AuthoritiesController < ApplicationController
   # GET /authorities/new
   def new
     @authority = Authority.new
+    @authority.region_id= session[:last_region_id]
   end
 
   # GET /authorities/1/edit
@@ -25,6 +26,7 @@ class AuthoritiesController < ApplicationController
 
     respond_to do |format|
       if @authority.save
+        session[:last_authority_id] = @authority.id
         format.html { redirect_to authority_url(@authority), notice: "Authority was successfully created." }
         format.json { render :show, status: :created, location: @authority }
       else
@@ -38,6 +40,7 @@ class AuthoritiesController < ApplicationController
   def update
     respond_to do |format|
       if @authority.update(authority_params)
+        session[:last_authority_id] = @authority.id
         format.html { redirect_to authority_url(@authority), notice: "Authority was successfully updated." }
         format.json { render :show, status: :ok, location: @authority }
       else

@@ -13,6 +13,7 @@ class MastersController < ApplicationController
   # GET /masters/new
   def new
     @master = Master.new
+    @master.currency_id = session[:last_currency_id]
   end
 
   # GET /masters/1/edit
@@ -22,9 +23,9 @@ class MastersController < ApplicationController
   # POST /masters or /masters.json
   def create
     @master = Master.new(master_params)
-
     respond_to do |format|
       if @master.save
+        session[:last_master_id] = @master.id
         format.html { redirect_to master_url(@master), notice: "Master was successfully created." }
         format.json { render :show, status: :created, location: @master }
       else
@@ -38,6 +39,7 @@ class MastersController < ApplicationController
   def update
     respond_to do |format|
       if @master.update(master_params)
+        session[:last_master_id] = @master.id
         format.html { redirect_to master_url(@master), notice: "Master was successfully updated." }
         format.json { render :show, status: :ok, location: @master }
       else
