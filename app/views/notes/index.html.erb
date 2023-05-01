@@ -14,6 +14,7 @@
       <th>Grade</th>
       <th>Notes</th>
       <th>Features</th>
+      <th>Removed</th>
       <th>Created</th>
       <th>Updated</th>
       <th></th>
@@ -21,7 +22,7 @@
   </thead>
   <tbody>
   <% @notes.each do |note| %>
-    <tr>
+    <tr <% if (note.removed_on || note.replaced_by_id) %>class="removed"<% end %>>
       <td><%= link_to note.id, note %></td>
       <td><%= link_to render("masters/name", master: note.master), note.master %></td>
       <td><%= note.master.pick %></td>
@@ -34,6 +35,12 @@
             <li><%= f.name %></li>
           <% end %>
         </ul>
+      </td>
+      <td>
+        <% if note.replaced_by_id %>
+          <%= link_to "🔀 '#{note.replaced_by.serial}'", note_path(note.replaced_by) %><br/>
+        <% end %>
+        <%= note.removal_notes %>
       </td>
       <td class="system text-sm"><%= note.created_at.to_date.to_formatted_s(:iso8601) %></td>
       <td class="system text-sm"><%= note.updated_at.to_date.to_formatted_s(:iso8601) %></td>

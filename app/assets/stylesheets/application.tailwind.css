@@ -42,9 +42,11 @@
     @apply bg-indigo-100;
   }
 
+  .index-table .removed, .removed a {
+    @apply bg-indigo-100 italic text-indigo-400;
+  }
+
   .input-table th {
     @apply text-right pr-2;
   }
-
-
 }

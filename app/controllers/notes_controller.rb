@@ -66,6 +66,6 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.fetch(:note, {}).permit(:master_id, :grade_id, :notes, :serial, note_feature_ids: [])
+      params.fetch(:note, {}).permit(:master_id, :grade_id, :notes, :serial, :removed_on, :replaced_by_id, :removal_notes, note_feature_ids: [])
     end
 end

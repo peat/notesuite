@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_24_003901) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_30_183042) do
   create_table "authorities", force: :cascade do |t|
     t.string "name", null: false
     t.integer "region_id", null: false
@@ -98,6 +98,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_24_003901) do
     t.string "serial"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "replaced_by"
+    t.date "removed_on"
+    t.integer "replaced_by_id"
+    t.string "removal_notes"
     t.index "\"features_id\"", name: "index_notes_on_features_id"
     t.index ["grade_id"], name: "index_notes_on_grade_id"
     t.index ["master_id"], name: "index_notes_on_master_id"
