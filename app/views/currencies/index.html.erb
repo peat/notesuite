@@ -20,7 +20,6 @@
       <th>Masters</th>
       <th>Notes</th>
       <th>Created</th>
-      <th>Updated</th>
       <th></th>
     </tr>
   </thead>
@@ -38,7 +37,6 @@
       <td class="system"><%= currency.masters.count %></td>
       <td class="system"><%= currency.notes.count %></td>
       <td class="system text-sm"><%= currency.created_at.to_date.to_formatted_s(:iso8601) %></td>
-      <td class="system text-sm"><%= currency.updated_at.to_date.to_formatted_s(:iso8601) %></td>
       <td><%= link_to "✏️", edit_currency_path(currency) %></td>
     </tr>
   <% end %>

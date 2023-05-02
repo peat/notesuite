@@ -16,7 +16,6 @@
       <th>Authorities</th>
       <th>Currencies</th>
       <th>Created</th>
-      <th>Updated</th>
       <th></th>
     </tr>
   </thead>
@@ -30,7 +29,6 @@
       <td class="system"><%= region.authorities.count %></td>
       <td class="system"><%= region.currencies.count %></td>
       <td class="system text-sm"><%= region.created_at.to_date.to_formatted_s(:iso8601) %></td>
-      <td class="system text-sm"><%= region.updated_at.to_date.to_formatted_s(:iso8601) %></td>
       <td><%= link_to "✏️", edit_region_path(region) %></td>
     </tr>
   <% end %>

@@ -1,1 +1,6 @@
-<%= "#{number_to_human master.denomination, delimiter: ","} #{master.currency.authority.region.short_name} #{master.currency.name.pluralize}" %>
+<%= if master.denomination >= 1_000_000 
+      "#{number_to_human master.denomination, delimiter: ","} #{master.currency.name.pluralize}"
+    else
+      "#{number_with_delimiter number_with_precision(master.denomination, strip_insignificant_zeros: true) } #{master.currency.name.pluralize}"
+    end
+  %>
