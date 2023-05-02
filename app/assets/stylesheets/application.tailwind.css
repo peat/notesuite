@@ -22,16 +22,16 @@
     @apply bg-blue-800 text-blue-100 hover:underline font-bold border rounded-full px-3 py-1 my-3 drop-shadow-lg;
   }
 
-  .index-table td, .index-table th {
-    @apply text-left text-sm px-2 py-1;
+  .index-table {
+    @apply mb-5 text-sm text-left;
   }
 
   .index-table td {
-    @apply border border-indigo-100 whitespace-nowrap;
+    @apply border border-indigo-100 whitespace-nowrap py-1 px-1;
   }
 
   .index-table th {
-    @apply text-indigo-100 font-normal text-sm;
+    @apply text-indigo-100 font-normal px-1 py-1;
   }
 
   .index-table thead {
@@ -46,7 +46,4 @@
     @apply bg-indigo-100 italic text-indigo-400;
   }
 
-  .input-table th {
-    @apply text-right pr-2;
-  }
 }
