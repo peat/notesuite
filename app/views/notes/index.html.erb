@@ -1,9 +1,16 @@
-<h1 class="text-2xl font-bold my-5">Notes <span class="font-normal">(<%= Note.count %>)</span></h1>
+<h1 class="text-2xl font-bold my-5">Banknotes <span class="font-normal">(<%= Note.count %>)</span></h1>
 
 <div class="my-2">
 <%= link_to 'Add Note', new_note_path, class: "button" %>
 </div>
 
+<% Region.all.order(:short_name).each do |region|
+    if region.note_count == 0
+      next
+    end
+%>
+
+<h2 class="italic font-bold mt-5"><%= region.short_name %></h2>
 <table class="index-table">
   <thead>
     <tr>
@@ -21,13 +28,12 @@
     </tr>
   </thead>
   <tbody>
-    <% 
-        Region.all.order(:short_name).each do |region|
+    <%
           region.currencies.order(:issued_on).each do |currency|
             currency.notes.order(:denomination).each do |note|
     %>
     <tr <% if (note.removed_on || note.replaced_by_id) %>class="removed"<% end %>>
-      <td><%= link_to note.id, note %></td>
+      <td class="text-center"><%= link_to note.id, note %></td>
       <td><%= link_to region.short_name, region %></td>
       <td><%= link_to render("masters/name", master: note.master), note.master %></td>
       <td><%= note.master.pick %></td>
@@ -52,6 +58,6 @@
     </tr>
   <% end %>
   <% end %>
-  <% end %>
   </tbody>
 </table>
+  <% end %>
